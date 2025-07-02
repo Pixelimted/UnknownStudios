@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unknown Studios Site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --accent: #8afff8;
+      --text: #f0f0f0;
+      --card: #1c1c2b;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid var(--card);
+      border-top: 5px solid var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    header {
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #0a0a0f, #141423);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    nav a {
+      margin-left: 2rem;
+      color: var(--text);
+      text-decoration: none;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background-color: var(--accent);
+      transition: width var(--transition);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeInUp 1.5s ease forwards;
+      opacity: 0;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    .card {
+      background-color: var(--card);
+      padding: 2rem;
+      border-radius: 1rem;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px var(--accent);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .media-section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .media-section iframe {
+      width: 90%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+      margin-bottom: 2rem;
+    }
+
+    .discord-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #5865F2;
+      color: white;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .discord-button:hover {
+      background-color: #4752c4;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .stats-section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .stats-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .stats {
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111118;
+      color: #999;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader"><div class="spinner"></div></div>
+
+  <header>
+    <h1>Unknown Studios</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#features">Features</a>
+      <a href="#stats">Game Data</a>
+      <a href="#media">Media</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Unknown Studios</h2>
+    <p>The Official Unknown Studios Website where you can find our Games, Channels, & Servers.</p>
+  </section>
+
+  <section class="cards" id="features">
+    <div class="card">
+      <h3>Cutscenes</h3>
+      <p>Beautiful Cutscenes that make you excited when rolling..</p>
+    </div>
+    <div class="card">
+      <h3>New-Gen</h3>
+      <p>A new generation of roblox RNG's.</p>
+    </div>
+    <div class="card">
+      <h3>Live Data</h3>
+      <p>We show the game's tracking data, and more!</p>
+    </div>
+  </section>
+
+  <section class="stats-section" id="stats">
+    <h2>Unknown RNG Game Stats</h2>
+    <div class="stats" id="gameStats">
+      Loading stats from Roblox...
+    </div>
+  </section>
+
+  <section class="media-section" id="media">
+    <h2>Watch Our Showcase</h2>
+    <iframe src="https://www.youtube.com/shorts/1mgnrZ4ORlw" allowfullscreen></iframe>
+    <br />
+    <a class="discord-button" href="https://discord.gg/2pn6VT4vg2" target="_blank">Join our Discord</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Unknown Studios. All rights reserved.
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.display = 'none';
+      document.querySelector(".hero").style.opacity = 1;
+      document.querySelector(".cards").style.opacity = 1;
+    });
+
+    async function fetchRobloxGameStats() {
+      try {
+        const response = await fetch('https://games.roblox.com/v1/games?universeIds=5003731164');
+        const data = await response.json();
+        if (data.data && data.data.length > 0) {
+          const game = data.data[0];
+          document.getElementById('gameStats').innerHTML = `
+            <p><strong>Game Name:</strong> ${game.name}</p>
+            <p><strong>Playing Now:</strong> ${game.playing}</p>
+            <p><strong>Visits:</strong> ${game.visits.toLocaleString()}</p>
+            <p><strong>Favorites:</strong> ${game.favoritedCount.toLocaleString()}</p>
+          `;
+        }
+      } catch (err) {
+        document.getElementById('gameStats').textContent = 'Failed to load game data.';
+      }
+    }
+
+    fetchRobloxGameStats();
+  </script>
+</body>
+</html>
